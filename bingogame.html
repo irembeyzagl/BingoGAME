@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    h1{
+        position: absolute;
+        top:50px;
+        left:550px;
+        font-size: 70px;
+        color: aliceblue;
+        text-shadow:  3px 3px #07164c;
+    }
+    body{
+        /* background-image: url('bingo.jpg'); */
+        background-color: #07164c;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        color: aliceblue;
+    
+    }
+
+    #p1{
+        font-size: 40px;
+        position: absolute;
+        top: 250px;
+        left: 450px;
+        color: aliceblue;
+    }
+
+    #p2{
+        font-size: 40px;
+        position: absolute;
+        top: 250px;
+        left: 850px;
+        color: aliceblue;
+    }
+    .container1{
+        font-size: 25px;
+        position: absolute;
+        top: 450px;
+        left: 400px;
+        color: aliceblue;
+    }
+    .container2{
+        font-size: 25px;
+        position: absolute;
+        top: 450px;
+        left: 800px;
+        color: aliceblue;
+    }
+    .btn{
+        position: absolute;
+        top:600px;
+        left:700px;
+    }
+    .cont3{
+        position: absolute;
+        top:650px;
+        left:450px;
+        font-size: 35px;
+    }
+    .cont4{
+        position: absolute;
+        top:650px;
+        left:850px;
+        font-size: 35px;
+    }
+
+    .cont5{
+        font-size: 50px;
+        position: absolute;
+        top:350px;
+        left:600px;
+        color:rgb(120, 21, 8);
+        font-weight: 100px;
+    }
+</style>
+</head>
+<body>
+
+    <h1>    Bingo Gamee</h1>
+
+    <h2 id="p1">Player 1</h2>
+    <div class="container1"></div>
+    <h2 id="p2">Player2</h2>
+    <div class="container2"></div>
+    <div class="cont3"></div>
+    <div class="cont4"></div>
+    <div class="cont5"></div>
+    <div class="cont6"></div>
+    <button class="btn">Next</button>
+
+
+    <script>
+        var random1=[]
+        var cont=document.querySelector('.container1')
+        for(let i=0;i<9;i++){
+            var rand=Math.floor(Math.random()*100)
+            random1[i]=rand
+        }
+        cont.innerHTML=random1
+
+        var random2=[]
+        var cont2=document.querySelector('.container2')
+        for(let k=0;k<9;k++){
+            var rand2=Math.floor(Math.random()*100)
+            random2[k]=rand2
+        }
+        cont2.innerHTML=random2
+
+        var btn=document.querySelector('.btn')
+        var cont3=document.querySelector('.cont3')
+        var cont4=document.querySelector('.cont4')
+        var cont5=document.querySelector('.cont5')
+        var cont6=document.querySelector('.cont6')
+        let sayaç=0
+        btn.addEventListener('click',e=>{
+            var rand3=Math.floor(Math.random()*100)
+            cont3.innerHTML='The Number:'+rand3
+            for(let m=0;m<9;m++){
+                if(rand3==random1[m]){
+                    cont4.innerHTML=rand3+' '+'Hits Player 2'
+                    sayaç++
+                    if(sayaç==8){
+                            cont5.innerHTML='Player 2 İs Won'
+                            btn.disabled=true;
+                            break;
+                    }
+                }
+                if(rand3==random2[m]){
+                    cont4.innerHTML=rand3+' '+'Hits Player 1'
+                    sayaç++
+                    if(sayaç==8){
+                            cont5.innerHTML='Player 1 İs Won'
+                            break;
+                    }
+                }
+                
+                
+            }
+        })
+        
+
+
+    </script>
+</body>
+</html>
